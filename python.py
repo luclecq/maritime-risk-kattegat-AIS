@@ -29,7 +29,7 @@ def process_aisdk(file_input_path, bb_latmin, bb_latmax, bb_longmin, bb_longmax)
 	df = df[~df['Navigational status'].isin(['Moored', 'At anchor', 'Aground'])]
     # only include messages from class A or class B equipment
 	df = df[df['Type of mobile'].isin(['Class A', 'Class B'])]
-	# exclude messages from vessels that are close to other vessels by definition
+    # exclude messages from vessels that are close to other vessels by definition
     df = df[~df['Ship type'].isin(['Pilot', 'Tug', 'Towing', 'Towing long/wide'])]
     
     output_path = os.path.splitext(file_input_path)[0] + "_processed" + os.path.splitext(file_input_path)[1]   
