@@ -23,8 +23,10 @@ def process_aisdk(file_input_path, bb_latmin, bb_latmax, bb_longmin, bb_longmax)
     with open(file_input_path) as file_input:
         df = pd.read_csv(file_input, usecols=['# Timestamp', 'Type of mobile', 'MMSI', 'Latitude', 'Longitude', 'Navigational status', 'ROT', 'SOG', 'COG', 'Ship type'])
  
-    # bounding box filter
+    # bounding box filters
 	df = df[((df['Latitude'] >= bb_latmin) & (df['Latitude'] <= bb_latmax)) & ((df['Longitude'] >= bb_longmin) & (df['Longitude'] <= bb_longmax))]
+	df = df.loc[~((df['Latitude'] >= 57.6) & (df['Longitude'] >= 11.6))]
+        df = df.loc[~((df['Latitude'] <= 57.35) & ((df['Longitude'] >= 10.8) & (df['Longitude'] <= 11.2)))]
     # exclude messages with these 'stationary' statuses
 	df = df[~df['Navigational status'].isin(['Moored', 'At anchor', 'Aground'])]
     # only include messages from class A or class B equipment
