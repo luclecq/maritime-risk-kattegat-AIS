@@ -1,4 +1,4 @@
---- Maritime risk analysis analysis ---
+--- Maritime risk analysis ---
 
 -- points table creation
 CREATE TABLE points
