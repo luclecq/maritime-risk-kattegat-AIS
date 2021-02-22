@@ -1,5 +1,4 @@
 --- Maritime risk analysis ---
-
 -- points table creation
 CREATE TABLE points
 (timestamp TIMESTAMP, mmsi CHAR(9), latitude FLOAT, longitude FLOAT, rot FLOAT, sog FLOAT, cog FLOAT, ship_type CHAR(30));
