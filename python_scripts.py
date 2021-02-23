@@ -12,8 +12,8 @@ CopyRaster(agg_max, r"agg_max")
 # random samples of three months before and three months after 1 July 2020
 import pandas as pd
 import random
-sample_days_before = sorted(random.sample([d.strftime("%Y-%m-%d") for d in pd.date_range('2020-04-01','2020-06-30')], 20))
-sample_days_after = sorted(random.sample([d.strftime("%Y-%m-%d") for d in pd.date_range('2020-07-01','2020-09-30')], 20))
+sample_days_before = sorted(random.sample([d.strftime("%Y-%m-%d") for d in pd.date_range('2020-04-01','2020-06-30')], 15))
+sample_days_after = sorted(random.sample([d.strftime("%Y-%m-%d") for d in pd.date_range('2020-07-01','2020-09-30')], 15))
 
 # preprocess daily AIS text files from DMA for import in postgis
 import os
